@@ -1,23 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise 00: Improved responsive</title>
-    <link rel="stylesheet" href="responsive.css">
-</head>
-<body>
+/* 1. สั่งให้ html และ body เต็มจอ 100% และลบขอบขาว */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
 
-    <table>
-        <tr> 
-            <td class="box1">
-                First Dog
-            </td>
-            <td class="box2">
-                Second Dog
-            </td>
-        </tr>
-    </table>
+/* สั่งให้ตารางเต็มจอตาม */
+table {
+    width: 100%;
+    height: 100%; /* นี่คือคีย์สำคัญที่ทำให้ตารางสูงเต็มจอโดยไม่ต้องใช้ padding เยอะๆ */
+    border-collapse: collapse;
+    table-layout: fixed; /* บังคับให้แบ่งช่องเท่าๆ กันตามสัดส่วน */
+}
 
-</body>
-</html>
+/* จัดการช่องข้างใน */
+td {
+    border: 1px solid black;
+    text-align: center;      /* ข้อความกึ่งกลางแนวนอน */
+    vertical-align: middle;  /* ข้อความกึ่งกลางแนวตั้ง */
+}
+
+.box1 {
+    background-color: #6353ee; 
+}
+
+.box2 {
+    background-color: #de4259; 
+}
