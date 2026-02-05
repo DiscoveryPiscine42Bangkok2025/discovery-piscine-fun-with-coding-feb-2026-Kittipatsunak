@@ -1,0 +1,112 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's over 9000</title>
+    <style>
+
+        .calculator {
+            background-color: #34495e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        input, select {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #27ae60;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        input[type="submit"]:hover {
+            background-color: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <input type="text" id="leftOp" placeholder="Left member">
+        
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+
+        <input type="text" id="rightOp" placeholder="Right member">
+
+        <input type="submit" value="Try me!" id="calculateBtn">
+    </div>
+
+    <script>
+        const calculateBtn = document.getElementById('calculateBtn');
+        const leftOp = document.getElementById('leftOp');
+        const rightOp = document.getElementById('rightOp');
+        const operator = document.getElementById('operator');
+
+        calculateBtn.addEventListener('click', function() {
+            let lValue = leftOp.value;
+            let rValue = rightOp.value;
+            let op = operator.value;
+
+            if (!isPositiveInteger(lValue) || !isPositiveInteger(rValue)) {
+                alert("Error :(");
+                console.log("Error :(");
+                return; 
+            }
+            let num1 = parseInt(lValue);
+            let num2 = parseInt(rValue);
+            let result = 0;
+
+            if (op === '+') {
+                result = num1 + num2;
+            } else if (op === '-') {
+                result = num1 - num2;
+            } else if (op === '*') {
+                result = num1 * num2;
+            } else if (op === '/') {
+
+                if (num2 === 0) {
+                    over9000();
+                    return;
+                }
+                result = num1 / num2;
+            } else if (op === '%') {
+
+                if (num2 === 0) {
+                    over9000();
+                    return;
+                }
+                result = num1 % num2;
+            }
+
+            console.log(result); 
+            alert(result);      
+        });
+        function over9000() {
+            console.log("It's over 9000!");
+            alert("It's over 9000!");
+        }
+        function isPositiveInteger(str) {
+            return /^\d+$/.test(str);
+        }
+
+        setInterval(function() {
+            alert("Please, use me...");
+        }, 30000); 
+
+    </script>
+</body>
+</html>
