@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        h1 { text-align: center; }
+        /* New */
+        button {
+            display: block;
+            margin: 0 auto 20px auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        /* ft_list */
+        #ft_list {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            min-height: 50px;
+        }
+        /* หน้าตา To Do Item */
+        #ft_list div {
+            background-color: #e0e0e0;
+            margin-bottom: 5px;
+            padding: 10px;
+            cursor: pointer; /* pointer mouse */
+            border-left: 5px solid #333;
+            transition: 0.2s;
+        }
+        #ft_list div:hover {
+            background-color: #ccc;
+            border-left-color: #ff4444; /* เปลี่ยนสีเมาส์ */
+        }
+    </style>
+</head>
+<body>
+    <h1>To Do or Not To Do</h1>
+    <button id="newBtn" onclick="newTodo()">New</button>
+    <div id="ft_list"></div>
+    <script src="todo.js"></script>
+</body>
+</html>
