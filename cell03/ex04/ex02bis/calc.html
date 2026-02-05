@@ -2,17 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Calculator jQuery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's over 9000 (jQuery)</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        body { display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #2c3e50; }
-        .calculator { background-color: #34495e; padding: 20px; border-radius: 10px; display: flex; gap: 10px; }
-        input, select { padding: 10px; }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #2c3e50;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .calculator {
+            background-color: #34495e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        input, select {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #27ae60;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        input[type="submit"]:hover {
+            background-color: #2ecc71;
+        }
     </style>
 </head>
 <body>
+
     <div class="calculator">
-        <input type="text" id="leftOp" placeholder="Left">
+        <input type="text" id="leftOp" placeholder="Left member">
+        
         <select id="operator">
             <option value="+">+</option>
             <option value="-">-</option>
@@ -20,23 +54,30 @@
             <option value="/">/</option>
             <option value="%">%</option>
         </select>
-        <input type="text" id="rightOp" placeholder="Right">
+
+        <input type="text" id="rightOp" placeholder="Right member">
+
         <input type="submit" value="Try me!" id="calculateBtn">
     </div>
 
     <script>
         $(document).ready(function() {
-            // จับเวลา 30 วินาที
+            // ฟังก์ชันเช็คจำนวนเต็มบวก (ใช้ Regex)
+            function isPositiveInteger(str) {
+                return /^\d+$/.test(str);
+            }
+
             setInterval(function() {
                 alert("Please, use me...");
             }, 30000);
 
+            // เมื่อกดปุ่ม Calculate
             $('#calculateBtn').click(function() {
-                // ดึงค่าด้วย .val()
                 let lVal = $('#leftOp').val();
                 let rVal = $('#rightOp').val();
                 let op = $('#operator').val();
 
+                // ตรวจสอบว่าเป็นตัวเลขและจำนวนเต็มบวกหรือไม่
                 if (!isPositiveInteger(lVal) || !isPositiveInteger(rVal)) {
                     alert("Error :(");
                     console.log("Error :(");
@@ -47,25 +88,23 @@
                 let num2 = parseInt(rVal);
                 let result = 0;
 
+                // ตรวจสอบกรณีหารหรือ mod ด้วย 0
+                if ((op === '/' || op === '%') && num2 === 0) {
+                    console.log("It's over 9000!");
+                    alert("It's over 9000!");
+                    return;
+                }
+
+                // คำนวณ
                 if (op === '+') result = num1 + num2;
                 else if (op === '-') result = num1 - num2;
                 else if (op === '*') result = num1 * num2;
-                else if (op === '/' || op === '%') {
-                    if (num2 === 0) {
-                        console.log("It's over 9000!");
-                        alert("It's over 9000!");
-                        return;
-                    }
-                    result = (op === '/') ? num1 / num2 : num1 % num2;
-                }
+                else if (op === '/') result = num1 / num2;
+                else if (op === '%') result = num1 % num2;
 
                 console.log(result);
                 alert(result);
             });
-
-            function isPositiveInteger(str) {
-                return /^\d+$/.test(str);
-            }
         });
     </script>
 </body>
