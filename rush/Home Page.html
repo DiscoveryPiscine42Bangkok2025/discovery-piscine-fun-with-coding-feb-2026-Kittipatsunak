@@ -8,16 +8,19 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
     body { font-family: 'Segoe UI', sans-serif; background-color: #121212; color: white; }
-    
+  
     .hero-section {
         background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('picture/your-background.jpg');
         background-size: cover;
         background-position: center;
-        min-height: 100vh;
+        
+        min-height: 100vh; 
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        text-align: center;
+        padding-top: 120px; 
+        padding-bottom: 150px; 
     }
     
     .profile-card {
@@ -50,7 +53,7 @@
     }
 
     .contact-wrapper section {
-        padding: 60px 0;
+        padding: 80px 0; 
     }
     
     .info-badge {
@@ -92,7 +95,6 @@
                     <h3 class="card-title fw-bold">Kittipat</h3>
                     <p class="card-text text-warning">Electrical Engineering Student</p>
                     <p class="small opacity-75">Hardware, IoT & Web Development Interest</p>
-                    
                     <a href="portfolio_kittipat.html" class="btn btn-warning w-100 fw-bold mt-3">View Portfolio</a>
                 </div>
             </div>
@@ -105,7 +107,6 @@
                     <h3 class="card-title fw-bold">Tesoisak</h3>
                     <p class="card-text text-warning">IOTE Engineer Student</p>
                     <p class="small opacity-75">Hardware Specialist & Network Infrastructure</p>
-                    
                     <a href="portfolio_tesoisak.html" class="btn btn-warning w-100 fw-bold mt-3">View Portfolio</a>
                 </div>
             </div>
@@ -114,7 +115,7 @@
       </div>
     </div>
   </section>
-  
+
   <div id="contact" class="contact-wrapper">
       
       <section id="contact1" class="bg-dark text-white text-center d-flex align-items-center border-top border-secondary">
@@ -161,14 +162,15 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     $(document).ready(function(){
+      // Smooth Scroll Script
       $('a[href^="#"]').on('click', function(e) {
         var target = $($(this).attr('href'));
         if(target.length){
             e.preventDefault();
-            $('html, body').animate({ scrollTop: target.offset().top - 70 }, 800); // -70 เพื่อเผื่อที่ให้ Navbar
+            $('html, body').animate({ scrollTop: target.offset().top - 70 }, 800);
         }
       });
-      
+      // Navbar Toggler
       $(".navbar-toggler").click(function(){ $("#navHome").slideToggle(); });
     });
   </script>
