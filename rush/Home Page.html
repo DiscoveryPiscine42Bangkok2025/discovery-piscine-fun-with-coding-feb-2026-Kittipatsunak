@@ -10,7 +10,6 @@
     body { font-family: 'Segoe UI', sans-serif; background-color: #121212; color: white; }
     
     .hero-section {
-        
         background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('picture/your-background.jpg');
         background-size: cover;
         background-position: center;
@@ -22,26 +21,21 @@
     }
     
     .profile-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
-    transition: border-color 0.3s, box-shadow 0.3s;
-    cursor: pointer;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.2);
+        transition: border-color 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+        max-width: 300px;
+        border-radius: 12px;
+        overflow: hidden; 
+    }
 
-    
-    max-width: 300px;
-    border-radius: 12px;
-    overflow: hidden; 
-}
-
-
-  .profile-card img {
-    width: 100%;       
-    height: auto;      
-    display: block;    
-}
-
-    
+    .profile-card img {
+        width: 100%;       
+        height: auto;      
+        display: block;    
+    }
     
     .profile-card:hover {
         box-shadow: 0 0 20px rgba(255, 193, 7, 0.4);
@@ -54,13 +48,33 @@
         object-fit: cover;
         object-position: center;
     }
+
+    .contact-wrapper section {
+        padding: 60px 0;
+    }
+    
+    .info-badge {
+        cursor: default;
+        user-select: text;
+    }
   </style>
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-black bg-opacity-75">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand fw-bold text-warning" href="#">RUSH project</a>
+      <a class="navbar-brand" href="#">RUSH project</a>
+      <button class="navbar-toggler" type="button" >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse" id="navHome" style="display:none;">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="portfolio_kittipat.html">Kittipat</a></li>
+          <li class="nav-item"><a class="nav-link" href="portfolio_tesoisak.html">Tesoisak</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
@@ -69,10 +83,10 @@
       <h1 class="display-3 fw-bold mb-4">Select a Profile</h1>
       <p class="lead mb-5 text-secondary">Choose a member to view individual portfolio.</p>
       
-      <div class="row justify-content-center g-1">
+      <div class="row justify-content-center g-4">
         
         <div class="col-md-4">
-            <div class="card profile-card text-white h-100" onclick="location.href='portfolio_kittipat.html'">
+            <div class="card profile-card text-white h-100 mx-auto" onclick="location.href='portfolio_kittipat.html'">
                 <img src="picture/profile_nuk.png" class="card-img-top" alt="Kittipat">
                 <div class="card-body p-4">
                     <h3 class="card-title fw-bold">Kittipat</h3>
@@ -85,7 +99,7 @@
         </div>
 
         <div class="col-md-4">
-            <div class="card profile-card text-white h-100" onclick="location.href='portfolio_tesoisak.html'">
+            <div class="card profile-card text-white h-100 mx-auto" onclick="location.href='portfolio_tesoisak.html'">
                 <img src="picture/profile_ford.png" class="card-img-top" alt="Tesoisak">
                 <div class="card-body p-4">
                     <h3 class="card-title fw-bold">Tesoisak</h3>
@@ -100,6 +114,64 @@
       </div>
     </div>
   </section>
+  
+  <div id="contact" class="contact-wrapper">
+      
+      <section id="contact1" class="bg-dark text-white text-center d-flex align-items-center border-top border-secondary">
+          <div class="container">
+              <h2 class="mb-5">Contact Kittipat</h2>
+              <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="https://github.com/Kittipatsunak" class="btn btn-outline-light btn-lg px-4" target="_blank">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        <div class="btn btn-primary btn-lg px-4 info-badge">
+                            <i class="fas fa-envelope"></i> nukkittipat@gmail.com
+                        </div>
+                        <div class="btn btn-success btn-lg px-4 info-badge">
+                            <i class="fas fa-phone"></i> 0918452467
+                        </div>
+                        <a href="https://www.facebook.com/kittipatz.nukz" class="btn btn-outline-primary btn-lg px-4" target="_blank">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </a>
+                        <a href="https://www.instagram.com/kitt1p2t_n/" class="btn btn-outline-danger btn-lg px-4" target="_blank">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                    </div>
+                </div>
+              </div>
+          </div>
+      </section>
+
+      <section id="contact2" class="bg-black text-white text-center d-flex align-items-center border-top border-secondary">
+          <div class="container">
+              <h2>Contact Tesoisak</h2>
+              <div class="d-flex justify-content-center mt-4">
+                  <a href="https://github.com/moniter5316" target="_blank" class="btn btn-light m-2 text-dark fw-bold">
+                    <i class="fab fa-github"></i> GitHub
+                  </a>
+                  <a href="https://instagram.com/shaft_fxrd/" target="_blank" class="btn btn-outline-danger m-2 fw-bold"><i class="fab fa-instagram"></i> Instagram </a>
+                  <a href="https://discord.com/users/760871247260418110" target="_blank" class="btn btn-outline-primary m-2 fw-bold"><i class='fa-brands fa-discord'></i> Discord</a>
+              </div>
+          </div>
+      </section>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('a[href^="#"]').on('click', function(e) {
+        var target = $($(this).attr('href'));
+        if(target.length){
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: target.offset().top - 70 }, 800); // -70 เพื่อเผื่อที่ให้ Navbar
+        }
+      });
+      
+      $(".navbar-toggler").click(function(){ $("#navHome").slideToggle(); });
+    });
+  </script>
 
 </body>
 </html>
